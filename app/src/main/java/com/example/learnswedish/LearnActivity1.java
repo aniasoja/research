@@ -1,14 +1,14 @@
 package com.example.learnswedish;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-
 import java.util.ArrayList;
 
-public class LearnActivity extends AppCompatActivity {
+public class LearnActivity1 extends AppCompatActivity{
 
     ArrayList<Word> words;
     RecyclerView recyclerView;
@@ -36,3 +36,4 @@ public class LearnActivity extends AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
     }
 }
+
