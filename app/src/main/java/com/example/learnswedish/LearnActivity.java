@@ -18,7 +18,8 @@ public class LearnActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learn1);
+        setContentView(R.layout.activity_learn);
+
 
         recyclerView = findViewById(R.id.list);
         recyclerView.setHasFixedSize(true);
@@ -34,5 +35,7 @@ public class LearnActivity extends AppCompatActivity {
         myAdapter = new WordAdapter(this, words);
 
         recyclerView.setAdapter(myAdapter);
+
+
     }
 }
