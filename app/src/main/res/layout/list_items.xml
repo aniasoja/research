@@ -42,7 +42,7 @@
         android:layout_marginTop="33dp"
         android:layout_marginEnd="175dp"
         android:layout_marginBottom="175dp"
-        android:text="ToggleButton"
+        android:text="See English"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
