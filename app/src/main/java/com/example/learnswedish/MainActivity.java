@@ -16,12 +16,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        btnLearn = findViewById(R.id.btnLearn);
 
         SharedPreferences getWords = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
         int words_learnt = getWords.getInt("words_learnt", 0);
 
+        setContentView(R.layout.activity_main);
+        btnLearn = findViewById(R.id.btnStart);
         btnLearn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
