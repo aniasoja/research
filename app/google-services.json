@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "350341214109",
+    "firebase_url": "https://learn-swedish-app.firebaseio.com",
+    "project_id": "learn-swedish-app",
+    "storage_bucket": "learn-swedish-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350341214109:android:de3d87c540c19c02234974",
+        "android_client_info": {
+          "package_name": "com.example.learnswedish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350341214109-547cfq36mr97eal389a0e46rbemnj9ia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_14AdcQBcmZHfeIGdKTuL_wueUfQF6mA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350341214109-547cfq36mr97eal389a0e46rbemnj9ia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
