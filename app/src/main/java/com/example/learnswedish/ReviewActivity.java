@@ -15,49 +15,25 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class LearnActivity extends AppCompatActivity {
+public class ReviewActivity extends AppCompatActivity {
 
     ArrayList<Word> words;
     RecyclerView recyclerView;
     RecyclerView.Adapter myAdapter;
     RecyclerView.LayoutManager layoutManager;
-    Button btnLearnt;
-    ImageButton btnSound;
     public static final String WORDS_LEARNT = "com.example.learnswedish.wordslearnt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learn);
+        setContentView(R.layout.activity_review);
 
-        Log.d("words_learnt", "getting in");
 
         int words_learnt = getIntent().getIntExtra("words_learnt", 0);
         Log.d("words_learnt", String.valueOf(words_learnt));
 
 
-        btnLearnt = findViewById(R.id.btnLearnt);
-        btnLearnt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int wl = words_learnt+3;
-                int today = Calendar.DAY_OF_MONTH;
-                SharedPreferences.Editor editor = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE).edit();
-                editor.putInt("words_learnt", wl);
-                editor.putInt("lastStudied", today);
-                Log.d("words_learnt", String.valueOf(wl));
-                editor.commit();
-                SharedPreferences getWords = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
-                int wl2 = getWords.getInt("words_learnt", 0);
-                Log.d("words_learnt", String.valueOf(wl2));
-
-                Intent back = new Intent(LearnActivity.this, com.example.learnswedish.MainActivity.class);
-                back.putExtra("words_learnt", wl);
-                startActivity(back);
-            }
-        });
-
-        recyclerView = findViewById(R.id.list);
+        recyclerView = findViewById(R.id.list_review);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);
@@ -111,8 +87,7 @@ public class LearnActivity extends AppCompatActivity {
         //words.add();
 
 
-
-        myAdapter = new WordAdapter(this, words, words_learnt, true);
+        myAdapter = new WordAdapter(this, words, words_learnt, false);
 
         recyclerView.setAdapter(myAdapter);
 

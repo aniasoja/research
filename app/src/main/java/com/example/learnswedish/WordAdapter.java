@@ -1,11 +1,12 @@
 package com.example.learnswedish;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -15,64 +16,92 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import static com.example.learnswedish.R.raw.en_student;
+
 public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
 
     private ArrayList<Word> words;
     int wl;
+    boolean learn;
 
     public static final String WORDS_LEARNT = "com.example.learnswedish.wordslearnt";
 
-    public WordAdapter(Context context, ArrayList<Word> list, int words_learnt){
+    public WordAdapter(Context context, ArrayList<Word> list, int words_learnt, boolean learn_yn){
         words = list;
         wl = words_learnt;
+        learn = learn_yn;
+        Log.d("today", String.valueOf(learn));
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView ivWord;
         TextView tvWord;
         ToggleButton tbWord;
+        ImageButton btnSound;
+        TextView tvTrans;
 
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
-
-            ivWord = itemView.findViewById(R.id.ivWord);
-            tvWord = itemView.findViewById(R.id.tvWord);
-            tbWord = itemView.findViewById(R.id.tbWord);
-
+            if (learn == true){
+                ivWord = itemView.findViewById(R.id.ivWord);
+                tvWord = itemView.findViewById(R.id.tvWord);
+                tbWord = itemView.findViewById(R.id.tbWord);
+                btnSound = itemView.findViewById(R.id.btnSound);
+            } else {
+                ivWord = itemView.findViewById(R.id.ivWord2);
+                tvWord = itemView.findViewById(R.id.tvWord2);
+                tvTrans = itemView.findViewById(R.id.tvTrans);
+                btnSound = itemView.findViewById(R.id.btnSound2);
+            }
         }
     }
 
     @NonNull
     @Override
     public WordAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_items, viewGroup, false);
+        View v;
+        if (learn == true){
+            v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_items, viewGroup, false);
+        } else {
+            v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_items_review, viewGroup, false);
+        }
+
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull WordAdapter.ViewHolder ViewHolder, int i) {
-        i = i + wl;
+        if (learn == true){
+            i = i + wl;
+            ViewHolder.tbWord.setText("See English");
+            ViewHolder.tbWord.setTextOn(words.get(i).getEnglish_word());
+        } else {
+            ViewHolder.tvTrans.setText(words.get(i).getEnglish_word());
+        }
+
         ViewHolder.itemView.setTag(words.get(i));
         ViewHolder.tvWord.setText(words.get(i).getSwedish_word());
-        ViewHolder.tbWord.setText("See English");
-        ViewHolder.tbWord.setTextOn(words.get(i).getEnglish_word());
-        ViewHolder.tbWord.setTextOff("See English");
+        ViewHolder.ivWord.setImageResource(words.get(i).getWord_image());
 
-
-
-        if(words.get(i).getEnglish_word().equals("I work")){
-            ViewHolder.ivWord.setImageResource(R.drawable.work);
-        } else if(words.get(i).getEnglish_word().equals("an office worker")){
-            ViewHolder.ivWord.setImageResource(R.drawable.office_worker);
-        } else if(words.get(i).getEnglish_word().equals("a student")){
-            ViewHolder.ivWord.setImageResource(R.drawable.student);
-        } //need to add more and better ones
+        int sound = words.get(i).getSound();
+        ViewHolder.btnSound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final MediaPlayer mp = MediaPlayer.create(v.getContext(), sound);
+                mp.start();;
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        if (learn == true){
+            return 3;
+        } else {
+            Log.d("today", "wl " + wl);
+            return wl;
+        }
     }
-
 
 }
