@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Learn Swedish</string>
+    <string name="app_name">Top 3 Swedish Words of the Day</string>
     <string name="button_start">Learn them now</string>
     <string name="review">Review previous words</string>
 </resources>
