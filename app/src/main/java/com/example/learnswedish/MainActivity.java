@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity{
                  int today = Calendar.DAY_OF_MONTH;
                  Log.d("today", String.valueOf(today));
 
-                 //SharedPreferences getDay = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
-                 //int lastDay = getDay.getInt("lastStudied", 0);
-                 int lastDay = 0;
+                 SharedPreferences getDay = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
+                 int lastDay = getDay.getInt("lastStudied", 0);
+                 //int lastDay = 0;
                  Log.d("today",  "lastDay" + String.valueOf(lastDay));
 
                  if (today == lastDay && lastDay != 0){ //if studied today
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity{
                          Log.d("today", "no");
                      } else {
                          Log.d("words_learnt", "going in");
-                         Intent learn = new Intent(MainActivity.this, com.example.learnswedish.LearnActivity.class);
+                         Intent learn = new Intent(MainActivity.this, LearnSwipeActivity.class);
                          learn.putExtra("words_learnt", words_learnt);
                          startActivity(learn);
                      }

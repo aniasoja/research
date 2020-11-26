@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReviewActivity"></activity>
+        <activity
+            android:name=".SwipeActivity"
+            android:label="@string/title_activity_swipe"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ScreenSlidePagerActivity" />
+        <activity android:name=".ReviewActivity" />
         <activity android:name=".test" />
         <activity android:name=".LearnActivity" />
+        <activity android:name=".LearnSwipeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
