@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity{
 
                  SharedPreferences getDay = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
                  int lastDay = getDay.getInt("lastStudied", 0);
-                 //int lastDay = 0;
+                 //int lastDay = 0; //comment two lines above and uncomment this for infinite learning
                  Log.d("today",  "lastDay" + String.valueOf(lastDay));
 
                  if (today == lastDay && lastDay != 0){ //if studied today
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity{
 
                  } else {
                      //get amount of words already learnt
-                     int words_learnt;
+                     int words_learnt; //for review function to start from 0
                      SharedPreferences getWords = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
                      words_learnt = getWords.getInt("words_learnt", 0);
 
