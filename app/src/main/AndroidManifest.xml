@@ -10,14 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".NormalActivity"></activity>
+        <activity android:name=".FirstTimeActivity" />
         <activity android:name=".LearnSwipeActivity" />
-        <activity android:name=".ReviewActivity"
+        <activity
+            android:name=".ReviewActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".LearnActivity"
+        <activity
+            android:name=".LearnActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
