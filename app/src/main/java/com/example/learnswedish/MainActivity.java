@@ -31,12 +31,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
 
-        SharedPreferences getWords = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
-        int words_learnt = getWords.getInt("words_learnt", 0);
-        SharedPreferences getDay = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
-        int lastDay = getDay.getInt("lastStudied", 0);
         SharedPreferences getExp = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
         int userExp = getExp.getInt("user_exp", 0);
         if (userExp == 1 || userExp ==2) {

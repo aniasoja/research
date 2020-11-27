@@ -94,15 +94,11 @@ public class LearnSwipeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int wl = words_learnt+3;
-                int today = Calendar.DAY_OF_MONTH;
+                int today = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
                 SharedPreferences.Editor editor = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE).edit();
                 editor.putInt("words_learnt", wl);
                 editor.putInt("lastStudied", today);
-                Log.d("words_learnt", String.valueOf(wl));
                 editor.commit();
-                SharedPreferences getWords = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
-                int wl2 = getWords.getInt("words_learnt", 0);
-                Log.d("words_learnt", String.valueOf(wl2));
 
                 Intent back = new Intent(LearnSwipeActivity.this, MainActivity.class);
                 back.putExtra("words_learnt", wl);

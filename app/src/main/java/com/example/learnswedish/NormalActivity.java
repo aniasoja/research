@@ -30,10 +30,12 @@ public class NormalActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //get the dat of the last lesson done and compare with today's data
-                int today = Calendar.DAY_OF_MONTH;
+                int today = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+                System.out.println("time today " +today);
 
                 SharedPreferences getDay = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
                 int lastDay = getDay.getInt("lastStudied", 0);
+                System.out.println("time lastDay " + lastDay);
                 //int lastDay = 0; //comment two lines above and uncomment this for infinite learning
 
                 if (today == lastDay && lastDay != 0){ //if studied today
@@ -47,7 +49,6 @@ public class NormalActivity extends AppCompatActivity {
 
                     //get amount of the words learnt stored in the app
                     int wlIntent = getIntent().getIntExtra("words_learnt", 0);
-
 
                     if (words_learnt != wlIntent && wlIntent != 0){
                         Toast.makeText(NormalActivity.this, "You've learnt our top 3 words today", Toast.LENGTH_SHORT).show();
