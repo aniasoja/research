@@ -53,6 +53,7 @@ public class FirstTimeActivity extends AppCompatActivity {
                     editor.putInt("user_exp", 1);
                     editor.commit();
                     Intent yes = new Intent(FirstTimeActivity.this, NormalActivity.class);
+                    yes.putExtra("first_time", 1);
                     startActivity(yes);
 
                 } else {
@@ -77,6 +78,7 @@ public class FirstTimeActivity extends AppCompatActivity {
                     editor.commit();
 
                     Intent no = new Intent( FirstTimeActivity.this, NormalActivity.class );
+                    no.putExtra("first_time", 1);
                     startActivity( no );
                 } else {
                     Toast.makeText( FirstTimeActivity.this, fillNameRequest, Toast.LENGTH_SHORT ).show();
