@@ -22,7 +22,7 @@
         android:layout_width="252dp"
         android:layout_height="64dp"
         android:gravity="center"
-        android:text="In the past, have you used a language self-study application such as DuoLingo, Memrise, Quizlet etc., for at least a [period of time]??"
+        android:text="In the past, have you used a language self-study application such as DuoLingo, Memrise, Quizlet etc., for at least 2 weeks??"
         app:layout_constraintBottom_toTopOf="@+id/btnYes2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
