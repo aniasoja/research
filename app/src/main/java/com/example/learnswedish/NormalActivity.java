@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.sql.Wrapper;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,6 +28,8 @@ public class NormalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
 
+        final FirebaseAnalytics mFirebaseAnalytics;
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         //button Lean setup
         btnLearn = findViewById(R.id.btnStart);
@@ -35,6 +39,10 @@ public class NormalActivity extends AppCompatActivity {
 
                 //get the dat of the last lesson done and compare with today's data
                 int today = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+
+                Bundle params = new Bundle();
+                params.putString( "time_completed", Calendar.getInstance().getTime().toString() );
+                mFirebaseAnalytics.logEvent("button_completed_click", params);
 
                 SharedPreferences getDay = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
                 int lastDay = getDay.getInt("lastStudied", 0);

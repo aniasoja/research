@@ -19,6 +19,7 @@ import java.util.Calendar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -26,11 +27,18 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 public class MainActivity extends AppCompatActivity{
 
     public static final String WORDS_LEARNT = "com.example.learnswedish.wordslearnt"; //adress of the file with stored data
-
+    FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        FirebaseAnalytics.getInstance(this).getAppInstanceId();
+
+        mFirebaseAnalytics.setUserProperty("user_pseudo_id", String.valueOf( FirebaseAnalytics.getInstance(this).getAppInstanceId() ) );
+        mFirebaseAnalytics.setUserProperty("name", "Pepi" );
 
         SharedPreferences getExp = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
         int userExp = getExp.getInt("user_exp", 0);
