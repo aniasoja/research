@@ -1,10 +1,6 @@
 package com.example.learnswedish;
-
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +11,6 @@ import androidx.viewpager.widget.ViewPager;
 
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class LearnSwipeActivity extends AppCompatActivity {
     ArrayList<Word> words;
@@ -43,8 +38,8 @@ public class LearnSwipeActivity extends AppCompatActivity {
         words.add(new Word("firefighter", "en brandman", R.drawable.fireman, R.raw.en_brandman));
         words.add(new Word("I cook", "jag lagar mat", R.drawable.cooking, R.raw.jag_lagar_mat));
         words.add(new Word("I bake", "jag bakar", R.drawable.baking, R.raw.jag_bakar));
-        //words.add(new Word("a pot", "", R.drawable.pan, sound));
-        //words.add(new Word("a pan", "", R.drawable.frying_pan, sound));
+        words.add(new Word("a pan", "en panna", R.drawable.frying_pan, R.raw.en_panna));
+        words.add(new Word("a plate", "en tallrik", R.drawable.plate, R.raw.en_tallrik));
         words.add(new Word("a microvawe", "en mikrovågsugn", R.drawable.microwave, R.raw.en_mikrovagsugn));
         words.add(new Word("a corkscrew", "en korkskruv", R.drawable.corkscrew, R.raw.en_korkskruv));
         words.add(new Word("I cycle", "jag cyklar", R.drawable.bicycle, R.raw.jag_cyklar));
@@ -52,7 +47,7 @@ public class LearnSwipeActivity extends AppCompatActivity {
         words.add(new Word("football", "fotboll", R.drawable.football, R.raw.fotboll));
         words.add(new Word("volleyball", "volleyboll", R.drawable.volleyball, R.raw.volleyboll));
         words.add(new Word("I swim", "jag simmar", R.drawable.swimmer, R.raw.jag_simmar));
-        //words.add(new Word());
+        words.add(new Word("I'm going to the gym", "Jag går till gymmet", R.drawable.gym, R.raw.jag_gar_till_gymmet));
         words.add(new Word("a beach", "en strand", R.drawable.beach, R.raw.en_strand));
         words.add(new Word("a forest", "en skog", R.drawable.forest, R.raw.en_skog));
         words.add(new Word("a lake", "en sjö", R.drawable.pond, R.raw.en_sjo));
@@ -70,16 +65,13 @@ public class LearnSwipeActivity extends AppCompatActivity {
         words.add(new Word("honeymoon", "en smekmånad", R.drawable.briefcase, R.raw.en_smekmanad));
         words.add(new Word("older sister", "storasyster", R.drawable.woman, R.raw.storasyster));
         words.add(new Word("younger brother", "lillebror", R.drawable.brother, R.raw.lillebror));
-        //words.add();
-
+        words.add(new Word("a relative", "en släkting", R.drawable.family, R.raw.en_slakting));
         words.add(new Word("I read a newspaper", "Jag läser tidningen", R.drawable.newspaper, R.raw.jag_laser_tidningen));
         words.add(new Word("I watch a movie", "Jag tittar på filmen", R.drawable.video, R.raw.jag_tittar_pa_filmen));
         words.add(new Word("I throw a party", "Jag har en fest", R.drawable.dance, R.raw.jag_har_en_fest));
         words.add(new Word("I visit an old city", "Jag besöker gamla stan", R.drawable.building, R.raw.jag_besoker_gamla_stan));
-
-
-        //words.add();
-        //words.add();
+        words.add(new Word("I relax", "Jag slappar", R.drawable.relax, R.raw.jag_slappar));
+        words.add(new Word("I sunbathe", "Jag solar", R.drawable.sunbathing, R.raw.jag_solar));
 
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -87,24 +79,6 @@ public class LearnSwipeActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-
-        btnKnow = findViewById(R.id.btnKnow);
-        btnKnow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int wl = words_learnt+3;
-                int today = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-                SharedPreferences.Editor editor = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE).edit();
-                editor.putInt("words_learnt", wl);
-                editor.putInt("lastStudied", today);
-                editor.commit();
-
-                Intent back = new Intent(LearnSwipeActivity.this, MainActivity.class);
-                back.putExtra("words_learnt", wl);
-                startActivity(back);
-            }
-        });
 
 
     }

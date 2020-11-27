@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -66,6 +67,8 @@ public class view1 extends Fragment {
         TextView tvWord = rootView.findViewById(R.id.tvWord4);
         ToggleButton tbWord = rootView.findViewById(R.id.tbWord4);
         ImageView ivSound = rootView.findViewById(R.id.btnSound4);
+        Button btnKnow = rootView.findViewById(R.id.btnKnow);
+        btnKnow.setVisibility(rootView.GONE);
 
         tvWord.setText(words.get(sn+words_learnt).getEnglish_word());
         ivWord.setImageResource(words.get(sn+words_learnt).getWord_image());
@@ -78,6 +81,15 @@ public class view1 extends Fragment {
             public void onClick(View v) {
                 final MediaPlayer mp = MediaPlayer.create(v.getContext(), sound);
                 mp.start();;
+            }
+        });
+        tbWord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (tbWord.isChecked()){
+                    final MediaPlayer mp = MediaPlayer.create(v.getContext(), sound);
+                    mp.start();;
+                }
             }
         });
 

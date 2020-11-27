@@ -5,17 +5,60 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_constraintLeft_toRightOf="parent"
     tools:context=".view1">
 
     <!-- TODO: Update blank fragment layout -->
 
     <ImageView
+        android:id="@+id/ivSwipe"
+        android:layout_width="88dp"
+        android:layout_height="85dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/swipe2"
+        tools:srcCompat="@drawable/swipe2" />
+
+    <Button
+        android:id="@+id/btnKnow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="I know!"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.998" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="@id/ivWord4"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="@id/ivWord4"
+        app:layout_constraintRight_toRightOf="@id/ivWord4"
+        app:layout_constraintTop_toTopOf="@id/ivWord4" />
+
+    <ImageView
         android:id="@+id/ivWord4"
         android:layout_width="131dp"
         android:layout_height="131dp"
-        android:layout_marginTop="192dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvWord"
+        android:layout_marginBottom="200dp"
+        android:tint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/office_worker" />
@@ -24,37 +67,47 @@
         android:id="@+id/tvWord4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginBottom="240dp"
+        android:layout_marginTop="75dp"
         android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivWord" />
+        app:layout_constraintTop_toBottomOf="@id/ivWord4"
+        app:layout_constraintVertical_bias="0.007" />
 
     <ToggleButton
         android:id="@+id/tbWord4"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="160dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="164dp"
+        android:buttonTint="@color/colorPrimaryDark"
+        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
+        android:outlineSpotShadowColor="@color/colorPrimaryDark"
         android:text="See English"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvWord" />
+        app:layout_constraintTop_toBottomOf="@id/tvWord4" />
 
     <ImageButton
         android:id="@+id/btnSound4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
         android:background="#00FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/ivWord"
+        android:tint="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_volume_up_black_24dp" />
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        app:srcCompat="@drawable/sound" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

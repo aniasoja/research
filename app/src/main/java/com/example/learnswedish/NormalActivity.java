@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.sql.Wrapper;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class NormalActivity extends AppCompatActivity {
@@ -17,11 +19,13 @@ public class NormalActivity extends AppCompatActivity {
     Button btnLearn;
     Button btnReview;
     public static final String WORDS_LEARNT = "com.example.learnswedish.wordslearnt"; //adress of the file with stored data
+    ArrayList<Word> words;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
+
 
         //button Lean setup
         btnLearn = findViewById(R.id.btnStart);
@@ -31,19 +35,17 @@ public class NormalActivity extends AppCompatActivity {
 
                 //get the dat of the last lesson done and compare with today's data
                 int today = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-                System.out.println("time today " +today);
 
                 SharedPreferences getDay = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
                 int lastDay = getDay.getInt("lastStudied", 0);
-                System.out.println("time lastDay " + lastDay);
-                //int lastDay = 0; //comment two lines above and uncomment this for infinite learning
+                //int lastDay = 0;                                            //comment two lines above and uncomment this for infinite learning
 
                 if (today == lastDay && lastDay != 0){ //if studied today
                     Toast.makeText(NormalActivity.this, "You've learnt our top 3 words today", Toast.LENGTH_SHORT).show();
 
                 } else {
                     //get amount of words already learnt
-                    int words_learnt; //for review function to start from 0
+                    int words_learnt;                                       //if you're eunning out of words to learn - set a number and comment two lines below
                     SharedPreferences getWords = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
                     words_learnt = getWords.getInt("words_learnt", 0);
 
