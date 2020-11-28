@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.Calendar;

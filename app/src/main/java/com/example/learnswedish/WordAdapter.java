@@ -2,21 +2,17 @@ package com.example.learnswedish;
 
 import android.content.Context;
 import android.media.MediaPlayer;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-
-import static com.example.learnswedish.R.raw.en_student;
 
 public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
 
