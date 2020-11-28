@@ -62,7 +62,7 @@ public class NormalActivity extends AppCompatActivity {
 
                 } else {
                     //get amount of words already learnt
-                    int words_learnt;                                       //if you're eunning out of words to learn - set a number and comment two lines below
+                    int words_learnt;                                       //if you're running out of words to learn - set a number and comment two lines below
                     SharedPreferences getWords = getSharedPreferences(WORDS_LEARNT, MODE_PRIVATE);
                     words_learnt = getWords.getInt("words_learnt", 0);
 
